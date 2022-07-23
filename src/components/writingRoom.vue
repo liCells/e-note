@@ -35,7 +35,6 @@ import {NMenu, NGi, NGrid, NDivider, NIcon} from 'naive-ui'
 import {Library, Settings} from '@vicons/ionicons5';
 import Vditor from 'vditor';
 import 'vditor/dist/index.css';
-import globalConfig from "@/conf";
 
 function renderIcon(icon) {
   return () => h(NIcon, null, { default: () => h(icon) });
