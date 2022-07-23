@@ -7,7 +7,7 @@
             v-model:value="activateTheTag"
             :indent="12"
             :options="tags"
-            @click="activateTheFile = null"
+            @click="activateTheFile = null; theBodyShow = 'store'"
         />
 
         <n-divider/>
@@ -21,7 +21,8 @@
       </n-gi>
       <n-gi span="10">
         <div>
-          <div id="article" class="preview" v-if="vditorShow"></div>
+          <div id="article" class="preview" v-if="theBodyShow === 'vditor'"></div>
+          <div v-else-if="theBodyShow === 'store'">store</div>
         </div>
       </n-gi>
     </n-grid>
@@ -34,6 +35,8 @@ import {NMenu, NGi, NGrid, NDivider, NIcon} from 'naive-ui'
 import {Library, Settings} from '@vicons/ionicons5';
 import Vditor from 'vditor';
 import 'vditor/dist/index.css';
+import globalConfig from "@/conf";
+
 function renderIcon(icon) {
   return () => h(NIcon, null, { default: () => h(icon) });
 }
@@ -51,7 +54,7 @@ export default {
     return {
       activateTheFile: null,
       activateTheTag: null,
-      vditorShow: false,
+      theBodyShow: null,
       files: [
         {
           label: 'testVal',
@@ -72,6 +75,8 @@ export default {
       ]
     }
   },
+  created() {
+  },
   methods: {
     initVditor() {
       this.content = new Vditor('article', {
@@ -89,7 +94,7 @@ export default {
           }
         }
       });
-      this.vditorShow = true;
+      this.theBodyShow = 'vditor';
     },
   }
 }
