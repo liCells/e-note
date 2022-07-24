@@ -15,7 +15,7 @@ fn main() {
   db_pool.get()
       .unwrap()
       .execute("CREATE TABLE IF NOT EXISTS store (
-                  id INT PRIMARY KEY NOT NULL,
+                  id INTEGER PRIMARY KEY AUTOINCREMENT,
                   content TEXT NOT NULL,
                   tags TEXT
                );", params![])
