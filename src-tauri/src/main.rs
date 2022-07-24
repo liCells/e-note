@@ -39,3 +39,37 @@ fn init() {
                );", params![])
         .unwrap();
 }
+
+struct _Store {
+    id: u32,
+    content: String,
+    tags: String
+}
+
+// Exposed command
+// TODO append to tauri::Builder
+
+#[tauri::command]
+fn _get_store() {
+
+}
+
+#[tauri::command]
+fn _query_store() {
+
+}
+
+#[tauri::command]
+fn _delete_store() {
+
+}
+
+#[tauri::command]
+fn _save_store() {
+
+}
+
+#[tauri::command]
+fn _update_store() {
+
+}
