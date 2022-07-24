@@ -21,6 +21,7 @@ tauri = { version = "1.0.0-rc.5", features = ["api-all"] }
 r2d2_sqlite = "0.20.0"
 r2d2 = "0.8.9"
 rusqlite = "0.27.0"
+lazy_static = "1.4.0"
 
 [features]
 # by default Tauri runs in production mode
