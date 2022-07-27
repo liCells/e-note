@@ -7,7 +7,7 @@
             v-model:value="activateTheTag"
             :indent="12"
             :options="tags"
-            @click="activateTheFile = null; theBodyShow = 'store'"
+            @update:value="tagClick"
         />
 
         <n-divider/>
@@ -22,7 +22,9 @@
       <n-gi span="10">
         <div>
           <div id="article" class="preview" v-if="theBodyShow === 'vditor'"></div>
-          <div v-else-if="theBodyShow === 'store'">store</div>
+          <div v-else-if="theBodyShow === 'Store'">
+            store
+          </div>
         </div>
       </n-gi>
     </n-grid>
@@ -95,6 +97,10 @@ export default {
       });
       this.theBodyShow = 'vditor';
     },
+    tagClick(key, _item) {
+      this.activateTheFile = null;
+      this.theBodyShow = key
+    }
   }
 }
 </script>
